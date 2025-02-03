@@ -5,30 +5,38 @@ Begin VB.Form Form1
    ClientHeight    =   6660
    ClientLeft      =   120
    ClientTop       =   768
-   ClientWidth     =   16356
+   ClientWidth     =   15072
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    ScaleHeight     =   6660
-   ScaleWidth      =   16356
+   ScaleWidth      =   15072
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton btndot 
+      Caption         =   "画点"
+      Height          =   350
+      Left            =   3000
+      TabIndex        =   104
+      Top             =   2040
+      Width           =   975
+   End
    Begin VB.Frame Frame6 
       Caption         =   "背景"
       Height          =   2175
       Left            =   5160
       TabIndex        =   86
       Top             =   3240
-      Width           =   3495
+      Width           =   3012
       Begin VB.CommandButton btnchoosepic 
          Caption         =   "..."
          Height          =   300
-         Left            =   2640
+         Left            =   2520
          TabIndex        =   100
          Top             =   960
          Width           =   375
       End
       Begin VB.TextBox Text25 
          Height          =   300
-         Left            =   1320
+         Left            =   1200
          TabIndex        =   97
          Text            =   "500"
          Top             =   1560
@@ -36,38 +44,38 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox Text24 
          Height          =   300
-         Left            =   2520
+         Left            =   2400
          TabIndex        =   96
          Text            =   "500"
          Top             =   1560
          Width           =   495
       End
-      Begin VB.TextBox Text23 
+      Begin VB.TextBox txtpic 
          Height          =   300
-         Left            =   1320
+         Left            =   1200
          TabIndex        =   94
          Top             =   960
          Width           =   1275
       End
-      Begin VB.TextBox Text22 
+      Begin VB.TextBox txtbackcolorr 
          Height          =   300
-         Left            =   1320
+         Left            =   1200
          TabIndex        =   91
          Text            =   "0"
          Top             =   360
          Width           =   495
       End
-      Begin VB.TextBox Text21 
+      Begin VB.TextBox txtbackcolorrtxtbackcolorg 
          Height          =   300
-         Left            =   1920
+         Left            =   1800
          TabIndex        =   90
          Text            =   "0"
          Top             =   360
          Width           =   495
       End
-      Begin VB.TextBox Text20 
+      Begin VB.TextBox txtbackcolorrb 
          Height          =   300
-         Left            =   2520
+         Left            =   2400
          TabIndex        =   89
          Text            =   "0"
          Top             =   360
@@ -84,11 +92,11 @@ Begin VB.Form Form1
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   255
-         Left            =   2040
+         Height          =   252
+         Left            =   1920
          TabIndex        =   98
          Top             =   1560
-         Width           =   255
+         Width           =   252
       End
       Begin VB.Label Label31 
          Caption         =   "背景大小"
@@ -115,45 +123,45 @@ Begin VB.Form Form1
          Width           =   855
       End
    End
-   Begin VB.TextBox Text19 
-      Height          =   2655
-      Left            =   12600
+   Begin VB.TextBox txtcode 
+      Height          =   2772
+      Left            =   11760
       MultiLine       =   -1  'True
       TabIndex        =   84
       Text            =   "Form1.frx":0000
-      Top             =   3600
-      Width           =   3375
+      Top             =   3480
+      Width           =   3252
    End
    Begin VB.Frame Frame5 
       Caption         =   "设定"
       Height          =   2895
-      Left            =   12600
+      Left            =   11760
       TabIndex        =   72
       Top             =   120
-      Width           =   3375
+      Width           =   3252
       Begin VB.ComboBox commode 
-         Height          =   300
+         Height          =   276
          ItemData        =   "Form1.frx":0007
          Left            =   1080
          List            =   "Form1.frx":0014
          TabIndex        =   83
          Text            =   "Combo2"
-         Top             =   2400
+         Top             =   2040
          Width           =   1215
       End
-      Begin VB.CommandButton Command13 
+      Begin VB.CommandButton btnsetdelay 
          Caption         =   "设置"
          Height          =   375
-         Left            =   2640
+         Left            =   2520
          TabIndex        =   81
-         Top             =   1680
+         Top             =   1560
          Width           =   495
       End
       Begin VB.TextBox txtdelay 
          Height          =   300
          Left            =   1080
          TabIndex        =   79
-         Top             =   1800
+         Top             =   1560
          Width           =   855
       End
       Begin VB.TextBox txtsetangle 
@@ -169,7 +177,7 @@ Begin VB.Form Form1
          Height          =   300
          Left            =   120
          TabIndex        =   75
-         Top             =   1320
+         Top             =   1200
          Width           =   855
       End
       Begin VB.OptionButton optangle 
@@ -183,27 +191,27 @@ Begin VB.Form Form1
       End
       Begin VB.Label Label27 
          Caption         =   "海龟模式"
-         Height          =   255
+         Height          =   252
          Left            =   240
          TabIndex        =   82
-         Top             =   2400
-         Width           =   855
+         Top             =   2040
+         Width           =   852
       End
       Begin VB.Label Label26 
          Caption         =   "ms"
-         Height          =   255
+         Height          =   252
          Left            =   2160
          TabIndex        =   80
-         Top             =   1800
-         Width           =   375
+         Top             =   1680
+         Width           =   252
       End
       Begin VB.Label Label25 
          Caption         =   "动画延迟"
-         Height          =   255
+         Height          =   252
          Left            =   240
          TabIndex        =   78
-         Top             =   1800
-         Width           =   855
+         Top             =   1680
+         Width           =   852
       End
       Begin VB.Label Label24 
          Caption         =   "为一圆周"
@@ -234,11 +242,11 @@ Begin VB.Form Form1
    Begin VB.Frame Frame4 
       Caption         =   "插入文字"
       Height          =   3015
-      Left            =   9000
+      Left            =   8280
       TabIndex        =   53
       Top             =   3240
       Width           =   3375
-      Begin VB.TextBox Text9 
+      Begin VB.TextBox cominsertfontsize 
          Height          =   270
          Left            =   2640
          TabIndex        =   64
@@ -246,7 +254,7 @@ Begin VB.Form Form1
          Top             =   1680
          Width           =   615
       End
-      Begin VB.ComboBox Combo6 
+      Begin VB.ComboBox cominsertstyle 
          Height          =   300
          ItemData        =   "Form1.frx":002F
          Left            =   1440
@@ -256,7 +264,7 @@ Begin VB.Form Form1
          Top             =   1680
          Width           =   1095
       End
-      Begin VB.ComboBox Combo5 
+      Begin VB.ComboBox cominserttext 
          Height          =   300
          ItemData        =   "Form1.frx":0056
          Left            =   240
@@ -266,7 +274,7 @@ Begin VB.Form Form1
          Top             =   1680
          Width           =   1095
       End
-      Begin VB.ComboBox Combo4 
+      Begin VB.ComboBox comagline 
          Height          =   300
          ItemData        =   "Form1.frx":007D
          Left            =   1080
@@ -276,7 +284,7 @@ Begin VB.Form Form1
          Top             =   960
          Width           =   1215
       End
-      Begin VB.TextBox Text8 
+      Begin VB.TextBox txtinsert 
          Height          =   540
          Left            =   120
          MultiLine       =   -1  'True
@@ -292,7 +300,7 @@ Begin VB.Form Form1
          Top             =   2160
          Width           =   2055
       End
-      Begin VB.CommandButton Command11 
+      Begin VB.CommandButton btninserttext 
          Caption         =   "书写"
          Height          =   300
          Left            =   360
@@ -336,7 +344,7 @@ Begin VB.Form Form1
    Begin VB.Frame Frame3 
       Caption         =   "其他控制"
       Height          =   2895
-      Left            =   9000
+      Left            =   8280
       TabIndex        =   47
       Top             =   120
       Width           =   3375
@@ -380,7 +388,7 @@ Begin VB.Form Form1
          Top             =   960
          Width           =   1095
       End
-      Begin VB.CheckBox Check1 
+      Begin VB.CheckBox chkfill 
          Caption         =   "是否填充"
          Height          =   375
          Left            =   240
@@ -395,10 +403,10 @@ Begin VB.Form Form1
       Left            =   5160
       TabIndex        =   34
       Top             =   120
-      Width           =   3495
+      Width           =   3012
       Begin VB.TextBox txtfillb 
          Height          =   300
-         Left            =   2520
+         Left            =   2280
          TabIndex        =   71
          Text            =   "0"
          Top             =   2160
@@ -406,7 +414,7 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox txtfillg 
          Height          =   300
-         Left            =   1920
+         Left            =   1680
          TabIndex        =   70
          Text            =   "0"
          Top             =   2160
@@ -414,7 +422,7 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox txtfillr 
          Height          =   300
-         Left            =   1320
+         Left            =   1080
          TabIndex        =   69
          Text            =   "0"
          Top             =   2160
@@ -422,7 +430,7 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox txtpenb 
          Height          =   300
-         Left            =   2520
+         Left            =   2280
          TabIndex        =   68
          Text            =   "0"
          Top             =   1560
@@ -430,7 +438,7 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox txtpeng 
          Height          =   300
-         Left            =   1920
+         Left            =   1680
          TabIndex        =   67
          Text            =   "0"
          Top             =   1560
@@ -438,23 +446,23 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox txtpenr 
          Height          =   300
-         Left            =   1320
+         Left            =   1080
          TabIndex        =   66
          Text            =   "0"
          Top             =   1560
          Width           =   495
       End
-      Begin VB.CommandButton Command3 
+      Begin VB.CommandButton btnwidth 
          Caption         =   "设置"
          Height          =   350
-         Left            =   2160
+         Left            =   2040
          TabIndex        =   39
          Top             =   960
-         Width           =   1095
+         Width           =   732
       End
       Begin VB.TextBox txtwidth 
          Height          =   300
-         Left            =   1200
+         Left            =   1080
          TabIndex        =   38
          Text            =   "1"
          Top             =   960
@@ -463,10 +471,10 @@ Begin VB.Form Form1
       Begin VB.CommandButton btndown 
          Caption         =   "落笔"
          Height          =   375
-         Left            =   1800
+         Left            =   1080
          TabIndex        =   36
          Top             =   360
-         Width           =   1095
+         Width           =   732
       End
       Begin VB.CommandButton btnup 
          Caption         =   "抬笔"
@@ -474,7 +482,7 @@ Begin VB.Form Form1
          Left            =   240
          TabIndex        =   35
          Top             =   360
-         Width           =   1095
+         Width           =   732
       End
       Begin VB.Label Label15 
          Caption         =   "填充颜色"
@@ -494,19 +502,19 @@ Begin VB.Form Form1
       End
       Begin VB.Label Label13 
          Caption         =   "画笔粗细"
-         Height          =   255
+         Height          =   252
          Left            =   240
          TabIndex        =   37
          Top             =   1080
-         Width           =   975
+         Width           =   732
       End
    End
-   Begin VB.CommandButton Command5 
+   Begin VB.CommandButton btnsetlocation 
       Caption         =   "定位"
       Height          =   350
       Left            =   1680
       TabIndex        =   16
-      Top             =   3600
+      Top             =   3360
       Width           =   1095
    End
    Begin VB.TextBox txty 
@@ -514,71 +522,71 @@ Begin VB.Form Form1
       Left            =   1920
       TabIndex        =   15
       Text            =   "0"
-      Top             =   3120
+      Top             =   2880
       Width           =   795
    End
    Begin VB.Frame Frame1 
       Caption         =   "基本控制"
-      Height          =   6375
+      Height          =   6132
       Left            =   240
       TabIndex        =   0
       Top             =   120
-      Width           =   4695
+      Width           =   4812
       Begin VB.TextBox Text6 
          Height          =   300
-         Left            =   2880
+         Left            =   3000
          TabIndex        =   103
          Text            =   "0"
-         Top             =   1680
+         Top             =   1320
          Width           =   495
       End
       Begin VB.TextBox Text2 
          Height          =   300
-         Left            =   3480
+         Left            =   3600
          TabIndex        =   102
          Text            =   "0"
-         Top             =   1680
+         Top             =   1320
          Width           =   495
       End
       Begin VB.TextBox Text1 
          Height          =   300
-         Left            =   4080
+         Left            =   4200
          TabIndex        =   101
          Text            =   "0"
-         Top             =   1680
+         Top             =   1320
          Width           =   495
       End
-      Begin VB.CommandButton Command14 
+      Begin VB.CommandButton btnundo 
          Caption         =   "撤回"
          Height          =   300
-         Left            =   3120
+         Left            =   2880
          TabIndex        =   99
          Top             =   2760
          Width           =   975
       End
-      Begin VB.ListBox List1 
-         Height          =   1128
+      Begin VB.ListBox lststampid 
+         Height          =   948
          Left            =   2640
          TabIndex        =   88
          Top             =   5040
          Width           =   1935
       End
-      Begin VB.TextBox Text5 
+      Begin VB.TextBox txtstampid 
          Height          =   300
          Left            =   3240
          TabIndex        =   45
          Top             =   4200
          Width           =   615
       End
-      Begin VB.CommandButton Command6 
+      Begin VB.CommandButton btndeletestamp 
          Caption         =   "删除"
          Height          =   350
-         Left            =   2640
+         Left            =   2760
          TabIndex        =   44
          Top             =   3720
          Width           =   735
       End
-      Begin VB.CommandButton Command4 
+      Begin VB.CommandButton btnstamp 
          Caption         =   "盖印章"
          Height          =   350
          Left            =   3000
@@ -588,18 +596,18 @@ Begin VB.Form Form1
       End
       Begin VB.TextBox Text4 
          Height          =   300
-         Left            =   3240
+         Left            =   1200
          TabIndex        =   32
          Text            =   "5"
-         Top             =   2160
+         Top             =   2280
          Width           =   800
       End
-      Begin VB.TextBox Text3 
+      Begin VB.TextBox txtdotsize 
          Height          =   300
          Left            =   3240
          TabIndex        =   29
          Text            =   "50"
-         Top             =   960
+         Top             =   840
          Width           =   800
       End
       Begin VB.TextBox txtbiancount 
@@ -671,7 +679,7 @@ Begin VB.Form Form1
          Left            =   1200
          TabIndex        =   6
          Text            =   "100"
-         Top             =   960
+         Top             =   840
          Width           =   795
       End
       Begin VB.CommandButton btnback 
@@ -679,7 +687,7 @@ Begin VB.Form Form1
          Height          =   350
          Left            =   240
          TabIndex        =   5
-         Top             =   960
+         Top             =   840
          Width           =   800
       End
       Begin VB.CommandButton btnright 
@@ -687,7 +695,7 @@ Begin VB.Form Form1
          Height          =   350
          Left            =   240
          TabIndex        =   4
-         Top             =   2160
+         Top             =   1800
          Width           =   800
       End
       Begin VB.TextBox txtright 
@@ -695,7 +703,7 @@ Begin VB.Form Form1
          Left            =   1200
          TabIndex        =   3
          Text            =   "90"
-         Top             =   2160
+         Top             =   1800
          Width           =   800
       End
       Begin VB.TextBox txtleft 
@@ -703,7 +711,7 @@ Begin VB.Form Form1
          Left            =   1200
          TabIndex        =   2
          Text            =   "90"
-         Top             =   1560
+         Top             =   1320
          Width           =   800
       End
       Begin VB.CommandButton btnleft 
@@ -711,7 +719,7 @@ Begin VB.Form Form1
          Height          =   350
          Left            =   240
          TabIndex        =   1
-         Top             =   1560
+         Top             =   1320
          Width           =   800
       End
       Begin VB.Label Label18 
@@ -740,43 +748,43 @@ Begin VB.Form Form1
       End
       Begin VB.Label Label12 
          Caption         =   "速度"
-         Height          =   255
-         Left            =   2640
+         Height          =   252
+         Left            =   480
          TabIndex        =   33
-         Top             =   2280
-         Width           =   375
+         Top             =   2400
+         Width           =   492
       End
       Begin VB.Label Label11 
          Caption         =   "颜色"
          Height          =   252
          Left            =   2520
          TabIndex        =   31
-         Top             =   1680
-         Width           =   372
+         Top             =   1440
+         Width           =   492
       End
       Begin VB.Label Label10 
          Caption         =   "大小"
-         Height          =   255
-         Left            =   2640
+         Height          =   252
+         Left            =   2520
          TabIndex        =   30
-         Top             =   1080
-         Width           =   375
+         Top             =   960
+         Width           =   372
       End
       Begin VB.Label Label9 
          Caption         =   "画点"
-         Height          =   255
-         Left            =   2640
+         Height          =   252
+         Left            =   2520
          TabIndex        =   28
          Top             =   480
-         Width           =   615
+         Width           =   492
       End
       Begin VB.Label Label8 
          Caption         =   "边数"
-         Height          =   375
+         Height          =   252
          Left            =   120
          TabIndex        =   26
          Top             =   5160
-         Width           =   495
+         Width           =   492
       End
       Begin VB.Label Label7 
          Caption         =   "绘制角度"
@@ -831,36 +839,36 @@ Begin VB.Form Form1
       End
       Begin VB.Label Label3 
          Caption         =   "步"
-         Height          =   255
+         Height          =   252
          Left            =   2160
          TabIndex        =   11
          Top             =   480
-         Width           =   500
+         Width           =   252
       End
       Begin VB.Label Label1 
          Caption         =   "步"
-         Height          =   255
+         Height          =   252
          Left            =   2160
          TabIndex        =   12
-         Top             =   1080
-         Width           =   500
+         Top             =   960
+         Width           =   372
       End
       Begin VB.Label Label4 
          Caption         =   "度"
-         Height          =   255
+         Height          =   252
          Left            =   2160
          TabIndex        =   10
-         Top             =   1680
-         Width           =   500
+         Top             =   1440
+         Width           =   252
       End
       Begin VB.Label Label5 
          Caption         =   "度"
-         Height          =   255
+         Height          =   252
          Index           =   0
          Left            =   2160
          TabIndex        =   9
-         Top             =   2280
-         Width           =   500
+         Top             =   1920
+         Width           =   372
       End
    End
    Begin VB.Label Label28 
@@ -874,11 +882,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   255
-      Left            =   12600
+      Height          =   252
+      Left            =   11760
       TabIndex        =   85
       Top             =   3240
-      Width           =   1095
+      Width           =   1092
    End
    Begin VB.Menu file 
       Caption         =   "文件"
@@ -919,3 +927,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Frame6_DragDrop(Source As Control, X As Single, Y As Single)
+
+End Sub
+
+Private Sub txtcode_Change()
+
+End Sub
