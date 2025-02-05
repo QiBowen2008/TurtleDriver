@@ -75,19 +75,6 @@ class Application_ui(Frame):
         self.btndrawdbx.text = lambda : self.btndrawdbxVar.get()
         self.btndrawdbx.place(relx=0.088, rely=0.576, relwidth=0.073, relheight=0.058)
 
-        self.Label32Var = StringVar(value='x')
-        self.style.configure('TLabel32.TLabel', anchor='w', font=('宋体',11))
-        self.Label32 = Label(self.Frame6, text='x', textvariable=self.Label32Var, style='TLabel32.TLabel')
-        self.Label32.setText = lambda x: self.Label32Var.set(x)
-        self.Label32.text = lambda : self.Label32Var.get()
-        self.Label32.place(relx=0.637, rely=0.616, relwidth=0.084, relheight=0.1)
-
-        self.Label31Var = StringVar(value='背景大小')
-        self.style.configure('TLabel31.TLabel', anchor='w', font=('宋体',9))
-        self.Label31 = Label(self.Frame6, text='背景大小', textvariable=self.Label31Var, style='TLabel31.TLabel')
-        self.Label31.setText = lambda x: self.Label31Var.set(x)
-        self.Label31.text = lambda : self.Label31Var.get()
-        self.Label31.place(relx=0.08, rely=0.616, relwidth=0.284, relheight=0.148)
 
         self.Label30Var = StringVar(value='背景图片')
         self.style.configure('TLabel30.TLabel', anchor='w', font=('宋体',9))
@@ -134,7 +121,7 @@ class Application_ui(Frame):
         self.optradTextVar = StringVar(value='弧度')
         self.Frame5RadioVar = StringVar()
         self.style.configure('Toptrad.TRadiobutton', font=('宋体',9))
-        self.optrad = Radiobutton(self.Frame5, text='弧度', value='optrad', textvariable=self.optradTextVar, variable=self.Frame5RadioVar, style='Toptrad.TRadiobutton')
+        self.optrad = Radiobutton(self.Frame5, text='弧度', value='optrad', textvariable=self.optradTextVar, variable=self.Frame5RadioVar, style='Toptrad.TRadiobutton',command=self.optradcmd)
         self.optrad.setText = lambda x: self.optradTextVar.set(x)
         self.optrad.text = lambda : self.optradTextVar.get()
         self.optrad.setValue = lambda x: self.Frame5RadioVar.set('optrad' if x else '')
@@ -143,7 +130,7 @@ class Application_ui(Frame):
 
         self.optangleTextVar = StringVar(value='角度')
         self.style.configure('Toptangle.TRadiobutton', font=('宋体',9))
-        self.optangle = Radiobutton(self.Frame5, text='角度', value='optangle', textvariable=self.optangleTextVar, variable=self.Frame5RadioVar, style='Toptangle.TRadiobutton')
+        self.optangle = Radiobutton(self.Frame5, text='角度', value='optangle', textvariable=self.optangleTextVar, variable=self.Frame5RadioVar, style='Toptangle.TRadiobutton',command=self.optdegree)
         self.optangle.setText = lambda x: self.optangleTextVar.set(x)
         self.optangle.text = lambda : self.optangleTextVar.get()
         self.optangle.setValue = lambda x: self.Frame5RadioVar.set('optangle' if x else '')
@@ -172,11 +159,6 @@ class Application_ui(Frame):
         self.Label23.text = lambda : self.Label23Var.get()
         self.Label23.place(relx=0.037, rely=0.083, relwidth=0.337, relheight=0.088)
 
-        self.Text25Var = StringVar(value='500')
-        self.Text25 = Entry(self.Frame6, textvariable=self.Text25Var, font=('宋体',9))
-        self.Text25.setText = lambda x: self.Text25Var.set(x)
-        self.Text25.text = lambda : self.Text25Var.get()
-        self.Text25.place(relx=0.398, rely=0.616, relwidth=0.164, relheight=0.118)
 
         self.cominsertfontsizeVar = StringVar(value='10')
         self.cominsertfontsize = Entry(self.Frame4, textvariable=self.cominsertfontsizeVar, font=('宋体',9))
@@ -254,12 +236,6 @@ class Application_ui(Frame):
         self.Label20.setText = lambda x: self.Label20Var.set(x)
         self.Label20.text = lambda : self.Label20Var.get()
         self.Label20.place(relx=0.071, rely=0.438, relwidth=0.218, relheight=0.085)
-
-        self.Text24Var = StringVar(value='500')
-        self.Text24 = Entry(self.Frame6, textvariable=self.Text24Var, font=('宋体',9))
-        self.Text24.setText = lambda x: self.Text24Var.set(x)
-        self.Text24.text = lambda : self.Text24Var.get()
-        self.Text24.place(relx=0.797, rely=0.616, relwidth=0.164, relheight=0.118)
 
         self.btnhideVar = StringVar(value='隐藏海龟')
         self.style.configure('Tbtnhide.TButton', font=('宋体',9))
@@ -645,17 +621,17 @@ class Application_ui(Frame):
         self.Label5.text = lambda : self.Label5Var.get()
         self.Label5.place(relx=0.449, rely=0.34, relwidth=0.077, relheight=0.045)
 
-        self.txtbackcolorrtxtbackcolorgVar = StringVar(value='0')
-        self.txtbackcolorrtxtbackcolorg = Entry(self.Frame6, textvariable=self.txtbackcolorrtxtbackcolorgVar, font=('宋体',9))
-        self.txtbackcolorrtxtbackcolorg.setText = lambda x: self.txtbackcolorrtxtbackcolorgVar.set(x)
-        self.txtbackcolorrtxtbackcolorg.text = lambda : self.txtbackcolorrtxtbackcolorgVar.get()
-        self.txtbackcolorrtxtbackcolorg.place(relx=0.598, rely=0.142, relwidth=0.164, relheight=0.118)
+        self.txtbackcolorgVar = StringVar(value='0')
+        self.txtbackcolorg = Entry(self.Frame6, textvariable=self.txtbackcolorgVar, font=('宋体',9))
+        self.txtbackcolorg.setText = lambda x: self.txtbackcolorgVar.set(x)
+        self.txtbackcolorg.text = lambda : self.txtbackcolorgVar.get()
+        self.txtbackcolorg.place(relx=0.598, rely=0.142, relwidth=0.164, relheight=0.118)
 
-        self.txtbackcolorrbVar = StringVar(value='0')
-        self.txtbackcolorrb = Entry(self.Frame6, textvariable=self.txtbackcolorrbVar, font=('宋体',9))
-        self.txtbackcolorrb.setText = lambda x: self.txtbackcolorrbVar.set(x)
-        self.txtbackcolorrb.text = lambda : self.txtbackcolorrbVar.get()
-        self.txtbackcolorrb.place(relx=0.797, rely=0.142, relwidth=0.164, relheight=0.118)
+        self.txtbackcolorbVar = StringVar(value='0')
+        self.txtbackcolorb = Entry(self.Frame6, textvariable=self.txtbackcolorbVar, font=('宋体',9))
+        self.txtbackcolorb.setText = lambda x: self.txtbackcolorbVar.set(x)
+        self.txtbackcolorb.text = lambda : self.txtbackcolorbVar.get()
+        self.txtbackcolorb.place(relx=0.797, rely=0.142, relwidth=0.164, relheight=0.118)
 
     def retranslateUi(self):
         self.master.title(_('海龟驾驶台'))
@@ -667,8 +643,6 @@ class Application_ui(Frame):
         self.Frame1.configure(text=_('基本控制'))
         self.Label28.setText(_('代码'))
         self.btndrawdbx.setText(_('绘制'))
-        self.Label32.setText(_('x'))
-        self.Label31.setText(_('背景大小'))
         self.Label30.setText(_('背景图片'))
         self.Label29.setText(_('背景颜色'))
         self.btnsetback.setText(_('设置背景'))
@@ -730,6 +704,14 @@ class Application(Application_ui):
         tr.install()
         self.retranslateUi()
 
+    def optdegree(self):
+        turtle.degrees(float(self.txtsetangle.get()))
+        self.txtcode.insert(END,"turtle.degrees("+self.txtsetangle.get()+")\n")
+        pass
+    def optradcmd(self):
+        turtle.radians()
+        self.txtcode.insert(END,"turtle.radians()\n")
+        pass
     def on_load(self):
         fonts = Application.get_system_fonts()
         print("系统已安装字体:")
@@ -759,7 +741,9 @@ class Application(Application_ui):
 
     def btnsetback_Cmd(self):
         turtle.bgpic(self.txtpic.get())
+        turtle.bgcolor(float(int(self.txtbackcolorr.get())/255),float(int(self.txtbackcolorg.get())/255),float(int(self.txtbackcolorb.get())/255))
         self.txtcode.insert(END,"turtle.bdpic("+self.txtpic.get()+")\n")
+        self.txtcode.insert(END,"turtle.bgcolor("+str(float(int(self.txtbackcolorr.get())/255))+","+str(float(int(self.txtbackcolorg.get())/255))+","+str(float(int(self.txtbackcolorb.get()))/255)+")\n")
         pass
 
     def get_system_fonts():
@@ -878,8 +862,8 @@ class Application(Application_ui):
         turtle.fillcolor(int(self.txtfillr.get()),int(self.txtfillg.get()),int(self.txtfillb.get()))
         self.txtcode.insert(END,"turtle.colormode(255)\n")
         self.txtcode.insert(END,"turtle.width="+self.txtwidth.get()+"\n")
-        self.txtcode.insert("turtle.pencolor("+self.txtpenr.get()+","+self.txtpeng.get()+","+self.txtpenb.get()+"\n")
-        self.txtcode.insert("turtle.fillcolor("+self.txtfillr.get()+","+self.txtfillg.get()+","+self.txtfillb.get()+"\n")
+        self.txtcode.insert("turtle.pencolor("+self.txtpenr.get()+","+self.txtpeng.get()+","+self.txtpenb.get()+")\n")
+        self.txtcode.insert("turtle.fillcolor("+self.txtfillr.get()+","+self.txtfillg.get()+","+self.txtfillb.get()+")\n")
         pass
 
     def btndown_Cmd(self, event=None):
