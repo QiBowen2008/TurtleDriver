@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
+import tkinter.messagebox
 import turtle
-import turtledemo
 from fontTools.ttLib import TTFont
 import os, gettext
 from tkinter import *
@@ -34,7 +34,7 @@ class Application_ui(Frame):
         self.txtcodeFont = Font(font=('宋体',9))
         self.txtcode = Text(self.top, font=self.txtcodeFont)
         self.txtcode.place(relx=0.78, rely=0.581, relwidth=0.216, relheight=0.383)
-        self.txtcode.insert('1.0','Text19')
+        self.txtcode.insert('1.0','')
 
         self.style.configure('TFrame5.TLabelframe', font=('宋体',9))
         self.style.configure('TFrame5.TLabelframe.Label', font=('宋体',9))
@@ -123,6 +123,7 @@ class Application_ui(Frame):
         self.commode.setText = lambda x: self.commodeVar.set(x)
         self.commode.text = lambda : self.commodeVar.get()
         self.commode.place(relx=0.332, rely=0.705, relwidth=0.374)
+        self.commode.bind("<<ComboboxSelected>>", self.on_combobox_select)
 
         self.txtsetangleVar = StringVar(value='360')
         self.txtsetangle = Entry(self.Frame5, textvariable=self.txtsetangleVar, font=('宋体',9))
@@ -741,15 +742,24 @@ class Application(Application_ui):
         a=int(self.Text4.get())
         if a>=0 and a<=10:
             turtle.speed=a
+            self.txtcode.insert(END,"turtle.speed("+self.Text4.get()+")\n")
         else:
-            self.Text4.setText("请输入0-10之间的数字")
+            import tkinter
+            tkinter.messagebox.showinfo("信息", "请输入0-10之间的数字")
         pass
     def btndrawdbx_Cmd(self):
+        turtle.circle(float(self.txtr.get()),float(self.txtrangle.get()),int(self.txtbiancount.get()))
+        self.txtcode.insert("turtle.circle("+self.txtr.get()+","+self.txtrangle.get+","+self.txtbiancount.get+")\n")
+        pass
 
+    def on_combobox_select(self,event):
+        turtle.mode(self.commode.get())
+        self.txtcode.insert(END,"turtle.mode("+self.commode.get()+")\n")
         pass
 
     def btnsetback_Cmd(self):
         turtle.bgpic(self.txtpic.get())
+        self.txtcode.insert(END,"turtle.bdpic("+self.txtpic.get()+")\n")
         pass
 
     def get_system_fonts():
@@ -810,36 +820,12 @@ class Application(Application_ui):
 
     def btnsetlocation_Cmd(self, event=None):
         turtle.tiltangle(float(self.Text7.get()))
+        self.txtcode.insert("turtle.tiltangle("+self.Text7.get()+")\n")
         pass
-
-    def savepy_Cmd(self, event=None):
-        #TODO, Please finish the function here!
-        pass
-
-    def savepic_Cmd(self, event=None):
-        #TODO, Please finish the function here!
-        pass
-
-    def printcode_Cmd(self, event=None):
-        #TODO, Please finish the function here!
-        pass
-
-    def printpic_Cmd(self, event=None):
-        #TODO, Please finish the function here!
-        pass
-
-    def example_Cmd(self, event=None):
-        import turtledemo.ttdm
-        demo_window = turtledemo.ttdm.DemoWindow()
-        pass
-
-    def seehelp_Cmd(self, event=None):
-        #TODO, Please finish the function here!
-        pass
-
 
     def btndot_Cmd(self, event=None):
         turtle.dot(int(self.txtdotsize.get()))
+        self.txtcode.insert(END,"turtle.dot("+self.txtdotsize.get()+")\n")
         pass
     
     def btnchoosepic_Cmd(self, event=None):
@@ -853,31 +839,36 @@ class Application(Application_ui):
         if file_path:
             print(f"Selected image file: {file_path}")
             self.txtpic.setText(file_path)
-            # 在这里可以添加代码来处理选中的图片文件
         pass
 
     def btninserttext_Cmd(self, event=None):
         turtle.write(self.txtinsert.get("1.0", "end-1c"),self.Check2Var.get(),self.comagline.get(),(self.cominserttext.get(),int(self.cominsertfontsize.get()),self.cominsertstyle.get()))
+        self.txtcode.insert(END,"turtle.write("+self.txtinsert.get("1.0", "end-1c")+","+self.Check2Var.get()+","+self.comagline.get()+",("+self.cominserttext.get()+","+self.cominsertfontsize.get()+","+self.cominsertstyle.get()+")))\n")
         pass
 
     def btnhide_Cmd(self, event=None):
         turtle.hideturtle()
+        self.txtcode.insert(END,"turtle.hideturtle()\n")
         pass
 
     def btnclear_Cmd(self, event=None):
         turtle.clear()
+        self.txtcode.insert(END,"turtle.clear()\n")
         pass
 
     def btnreset_Cmd(self, event=None):
         turtle.reset()
+        self.txtcode.insert(END,"turtle.reset()\n")
         pass
 
     def btnendfill_Cmd(self, event=None):
         turtle.end_fill()
+        self.txtcode.insert(END,"turtle.end_fill()\n")
         pass
 
     def btnstartfill_Cmd(self, event=None):
         turtle.begin_fill()
+        self.txtcode.insert(END,"turtle.begin_fill()\n")
         pass
 
     def btnwidth_Cmd(self, event=None):
@@ -885,48 +876,62 @@ class Application(Application_ui):
         turtle.width=int(self.txtwidth.get())
         turtle.pencolor(int(self.txtpenr.get()),int(self.txtpeng.get()),int(self.txtpenb.get()))
         turtle.fillcolor(int(self.txtfillr.get()),int(self.txtfillg.get()),int(self.txtfillb.get()))
+        self.txtcode.insert(END,"turtle.colormode(255)\n")
+        self.txtcode.insert(END,"turtle.width="+self.txtwidth.get()+"\n")
+        self.txtcode.insert("turtle.pencolor("+self.txtpenr.get()+","+self.txtpeng.get()+","+self.txtpenb.get()+"\n")
+        self.txtcode.insert("turtle.fillcolor("+self.txtfillr.get()+","+self.txtfillg.get()+","+self.txtfillb.get()+"\n")
         pass
 
     def btndown_Cmd(self, event=None):
         turtle.pendown()
+        self.txtcode.insert(END,"turtle.pendown()\n")
         pass
 
     def btnup_Cmd(self, event=None):
         turtle.penup()
+        self.txtcode.insert(END,"turtle.penup()\n")
         pass
 
     def btnundo_Cmd(self, event=None):
         turtle.undo()
+        self.txtcode.insert(END,"turtle.undo()\n")
         pass
 
     def btndeletestamp_Cmd(self, event=None):
         turtle.clearstamp(int(self.txtstampid.get()))
+        self.txtcode.insert(END,"turtle.clearstamp("+self.txtstampid.get()+")\n")
         pass
 
     def btnstamp_Cmd(self, event=None):
         a=turtle.stamp()
         self.lststampid.delete(0,1)
         self.lststampid.insert(END,str(a))
+        self.txtcode.insert(END,"turtle.stamp()\n")
         pass
 
     def btnhome_Cmd(self, event=None):
         turtle.home()
+        self.txtcode.insert(END,"turtle.home()\n")
         pass
 
     def btnforward_Cmd(self, event=None):
         turtle.forward(float(self.txtforward.get()))
+        self.txtcode.insert(END,"turtle.forward("+self.txtforward.get()+")\n")
         pass
 
     def btnback_Cmd(self, event=None):
         turtle.back(float(self.txtback.get()))
+        self.txtcode.insert(END,"turtle.back("+self.txtback.get()+")\n")
         pass
 
     def btnright_Cmd(self, event=None):
         turtle.right(float(self.txtright.get()))
+        self.txtcode.insert(END,"turtle.right("+self.txtright.get()+")\n")
         pass
 
     def btnleft_Cmd(self, event=None):
         turtle.left(float(self.txtleft.get()))
+        self.txtcode.insert(END,"turtle.left("+self.txtleft.get()+")\n")
         pass
 
 

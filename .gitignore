@@ -1,2 +1,4 @@
 **/main.dist/
 **/mian.build/
+**/__pycache__/
+**/*.pyc

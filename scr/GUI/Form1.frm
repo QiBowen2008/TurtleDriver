@@ -11,6 +11,14 @@ Begin VB.Form Form1
    ScaleHeight     =   5988
    ScaleWidth      =   15072
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton btndrawdbx 
+      Caption         =   "绘制"
+      Height          =   350
+      Left            =   1320
+      TabIndex        =   94
+      Top             =   3450
+      Width           =   1095
+   End
    Begin VB.Frame Frame6 
       Caption         =   "背景"
       Height          =   2532
@@ -18,16 +26,8 @@ Begin VB.Form Form1
       TabIndex        =   74
       Top             =   3240
       Width           =   3012
-      Begin VB.CommandButton Command1 
-         Caption         =   "Command1"
-         Height          =   372
-         Left            =   1680
-         TabIndex        =   95
-         Top             =   2040
-         Width           =   852
-      End
       Begin VB.CommandButton btnsetback 
-         Caption         =   "返回原处"
+         Caption         =   "设置背景"
          Height          =   350
          Left            =   240
          TabIndex        =   92
@@ -181,14 +181,6 @@ Begin VB.Form Form1
          Top             =   720
          Value           =   -1  'True
          Width           =   735
-      End
-      Begin VB.Label Label26 
-         Caption         =   "ms"
-         Height          =   252
-         Left            =   2160
-         TabIndex        =   94
-         Top             =   1680
-         Width           =   252
       End
       Begin VB.Label Label27 
          Caption         =   "海龟模式"
@@ -600,7 +592,7 @@ Begin VB.Form Form1
       Begin VB.CommandButton btnhome 
          Caption         =   "返回原处"
          Height          =   350
-         Left            =   720
+         Left            =   120
          TabIndex        =   14
          Top             =   5040
          Width           =   1095
